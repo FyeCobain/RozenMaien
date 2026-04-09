@@ -1,59 +1,81 @@
-# RozenMaiden
+# Rozen Maiden
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.5.
 
-## Development server
+## Requirements
 
-To start a local development server, run:
+- [Node.js](https://nodejs.org/) (a version compatible with Angular 21)
+- [pnpm](https://pnpm.io/) (see `packageManager` in `package.json`; currently `pnpm@10.33.0`)
+
+## Installation
 
 ```bash
-ng serve
+pnpm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## NPM scripts
+
+| Command             | Description                                         |
+| ------------------- | --------------------------------------------------- |
+| `pnpm dev`          | Dev server (`ng serve`) at `http://localhost:4200/` |
+| `pnpm build`        | Production build; output in `dist/`                 |
+| `pnpm test`         | Unit tests (Vitest via `ng test`)                   |
+| `pnpm test:ci`      | Unit tests for CI (`ng test --watch=false`)         |
+| `pnpm lint`         | ESLint for `src/**/*.ts` and `src/**/*.html`        |
+| `pnpm format`       | Run Prettier and write changes                      |
+| `pnpm format:check` | Verify formatting without changing files            |
+
+You can also run `pnpm exec ng <command>` for the Angular CLI.
+
+## Development server
+
+```bash
+pnpm dev
+```
+
+When the server is running, open `http://localhost:4200/`. The app reloads when you change source files.
+
+## Code quality
+
+- **ESLint**: `pnpm lint` — rules in `eslint.config.js`.
+- **Prettier**: settings in `.prettierrc`; use `pnpm format` to apply, or `pnpm format:check` to validate only.
 
 ## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+The workspace component/directive **prefix** is **`rm`** (see `angular.json`). Examples:
 
 ```bash
-ng generate component component-name
+pnpm exec ng generate component some-name
+pnpm exec ng generate directive some-name
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+For all schematics:
 
 ```bash
-ng generate --help
+pnpm exec ng generate --help
 ```
 
 ## Building
 
-To build the project run:
-
 ```bash
-ng build
+pnpm build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Artifacts go to `dist/`. The default production configuration optimizes the app.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Unit tests
 
 ```bash
-ng test
+pnpm test
 ```
 
-## Running end-to-end tests
+For non-interactive environments (CI, scripts): `pnpm test:ci`.
 
-For end-to-end (e2e) testing, run:
+## End-to-end tests
 
-```bash
-ng e2e
-```
+This workspace does not define an `e2e` target in `angular.json`. Add an e2e setup (for example Cypress or Playwright) if you need it.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Additional resources
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [Angular documentation](https://angular.dev/)
+- [Angular CLI overview and command reference](https://angular.dev/tools/cli)
