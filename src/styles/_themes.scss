@@ -1,0 +1,34 @@
+:root {
+  /* Background hue */
+  --bg-hue-rotation-light: 0deg;
+  --bg-hue-rotation-dark: -60deg;
+  --bg-hue-rotation-delay-light: 0.35s;
+  --bg-hue-rotation-delay-dark: 0.5s;
+  --bg-hue-rotation: var(--bg-hue-rotation-light);
+  --bg-hue-rotation-delay: var(--bg-hue-rotation-delay-light);
+}
+
+/* background hue */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg-hue-rotation: var(--bg-hue-rotation-light);
+    --bg-hue-rotation-delay: var(--bg-hue-rotation-delay-light);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg-hue-rotation: var(--bg-hue-rotation-dark);
+    --bg-hue-rotation-delay: var(--bg-hue-rotation-delay-dark);
+  }
+}
+
+:root[data-theme='light'] {
+  --bg-hue-rotation: var(--bg-hue-rotation-light);
+  --bg-hue-rotation-delay: var(--bg-hue-rotation-delay-light);
+}
+
+:root[data-theme='dark'] {
+  --bg-hue-rotation: var(--bg-hue-rotation-dark);
+  --bg-hue-rotation-delay: var(--bg-hue-rotation-delay-dark);
+}
