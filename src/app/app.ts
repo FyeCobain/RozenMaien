@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { SEOService } from './seo.service';
 
 @Component({
   selector: 'rm-root',
@@ -7,5 +8,9 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('Rozen Maiden');
+  private readonly seoService = inject(SEOService);
+
+  constructor() {
+    this.seoService.init();
+  }
 }
