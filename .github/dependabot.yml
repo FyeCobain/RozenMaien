@@ -1,0 +1,27 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: sunday
+      time: '15:00'
+      timezone: America/Mexico_City
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: chore
+      prefix-development: chore
+      include: scope
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: sunday
+      time: '15:00'
+      timezone: America/Mexico_City
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: chore
+      include: scope
