@@ -9,6 +9,15 @@ updates:
       time: '15:00'
       timezone: America/Mexico_City
     open-pull-requests-limit: 3
+
+    groups:
+      all-npm-dependencies:
+        patterns:
+          - '*'
+        update-types:
+          - patch
+          - minor
+
     commit-message:
       prefix: chore
       prefix-development: chore
@@ -22,6 +31,12 @@ updates:
       time: '15:00'
       timezone: America/Mexico_City
     open-pull-requests-limit: 3
+
+    groups:
+      github-actions:
+        patterns:
+          - '*'
+
     commit-message:
       prefix: chore
       include: scope
