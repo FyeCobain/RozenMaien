@@ -7,7 +7,7 @@ on:
 
 jobs:
   validate-source:
-    name: Validate source branch
+    name: Validate pr source branch
     runs-on: ubuntu-latest
     permissions:
       contents: read
