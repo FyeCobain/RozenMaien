@@ -21,11 +21,11 @@ jobs:
           echo "Expected repository: ${{ github.repository }}"
 
           if [ "${{ github.event.pull_request.head.ref }}" != "dev" ]; then
-            echo "Solo se permiten PRs desde 'dev'"
+            echo "Only PRs from the 'dev' branch are allowed"
             exit 1
           fi
 
           if [ "${{ github.event.pull_request.head.repo.full_name }}" != "${{ github.repository }}" ]; then
-            echo "Solo se permiten PRs desde el mismo repositorio"
+            echo "Only PRs from the same repository are allowed"
             exit 1
           fi
