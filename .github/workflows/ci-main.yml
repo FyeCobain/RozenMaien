@@ -1,0 +1,31 @@
+name: CI main
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-source:
+    name: Validate source branch
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Validate source branch
+        run: |
+          echo "Base branch: ${{ github.event.pull_request.base.ref }}"
+          echo "Head branch: ${{ github.event.pull_request.head.ref }}"
+          echo "Head repository: ${{ github.event.pull_request.head.repo.full_name }}"
+          echo "Expected repository: ${{ github.repository }}"
+
+          if [ "${{ github.event.pull_request.head.ref }}" != "dev" ]; then
+            echo "Solo se permiten PRs desde 'dev'"
+            exit 1
+          fi
+
+          if [ "${{ github.event.pull_request.head.repo.full_name }}" != "${{ github.repository }}" ]; then
+            echo "Solo se permiten PRs desde el mismo repositorio"
+            exit 1
+          fi
